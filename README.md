@@ -1,14 +1,14 @@
-# ocean-stack（文档仓库）
+# oceanho-stack（文档仓库）
 
-本仓库是 `ocean-stack` 工作空间的**文档仓库**，独立 git 管理。
+本仓库是 `oceanho-stack` 工作空间的**文档仓库**，独立 git 管理。
 
-> 工作空间根目录：`D:\ocean\project\ocean-stack`
-> 说明：`ocean-stack` 本身不是 git 仓库，是本地收纳盒；文档（本仓库）与各项目各自独立 git。
+> 工作空间根目录：`D:\ocean\project\oceanho-stack`
+> 说明：`oceanho-stack` 本身不是 git 仓库，是本地收纳盒；文档（本仓库）与各项目各自独立 git。
 
 ## 仓库结构
 
 ```
-docs/                       ← 本仓库（ocean-stack-docs）
+docs/                       ← 本仓库（oceanho-stack/docs）
 ├── README.md               # 本文档
 ├── 目录结构建议.md          # 新电脑还原结构的说明书（重要）
 ├── adr/                    # 架构决策记录 ADR
