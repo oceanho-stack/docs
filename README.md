@@ -16,15 +16,25 @@
 | 公共 lib 怎么拆、go-libs 里有哪些库 | [adr/ADR-002-公共lib拆分原则.md](adr/ADR-002-公共lib拆分原则.md) |
 | 统一请求/响应协议、错误码、Header | [adr/ADR-003-统一请求响应协议.md](adr/ADR-003-统一请求响应协议.md) |
 | GORM 数据库无关规范、测试、踩坑 | [adr/ADR-004-GORM使用规范.md](adr/ADR-004-GORM使用规范.md) |
+| 开发前先调研开源成熟方案（避免造轮子） | [adr/ADR-005-开发前先调研开源成熟方案.md](adr/ADR-005-开发前先调研开源成熟方案.md) |
+| 开源 IAM / OAuth Provider 调研对比 | [调研/开源IAM与OAuth对比.md](调研/开源IAM与OAuth对比.md) |
 | 编码/命名/提交规范（写代码前必读） | [standards/编码与规范.md](standards/编码与规范.md) |
 | 新电脑 / 新环境怎么还原 | [目录结构建议.md](目录结构建议.md)（第三节） |
 
-> `api/`、`db/`、`notes/` 目录按需生长：有了接口定义、表结构、草稿再创建，不预建空目录。
+> `api/`、`db/`、`notes/`、`projects/<repo>/` 目录按需生长：有了接口定义、表结构、草稿再创建，不预建空目录。
+
+### 知识库规则（RAG 友好，AI 与人都适用）
+
+1. **README 是唯一入口**：AI 或人先读本 README，通过上方导航表定位到具体文档，不逐文件翻找。
+2. **新文档必须登记**：任何新增文档（ADR / 规范 / 调研 / 项目文档），**必须在导航表登记一行**，否则视为未归档。
+3. **按需生长**：目录只在有真实内容时创建，不预建空目录，避免检索噪音。
+4. **分类清晰**：`adr/`=决策记录，`standards/`=编码规范，根文档=环境与组织，`projects/`=各仓库专属文档。
 
 ## 当前进度（2026-11-02）
 
 - ✅ **go-libs 9 个公共库全部完成**并推送 GitHub（见 ADR-002 表格）。
-- ⬜ iam-server 未创建（下一步：按「先工具后业务」顺序，工具已齐，可开业务）。
+- ✅ **iam-core 已创建**：IAM 设计文档（DESIGN.md）+ domain 骨架在推进中（见 `projects/iam-core/`）。
+- ⬜ iam-server 未创建（工具已齐，认证协议层拟复用 Ory Fosite，见 ADR-005）。
 
 ## 已确立的技术决策速览
 
@@ -40,7 +50,8 @@
 |---|---|---|
 | oceanho-stack/docs | https://github.com/oceanho-stack/docs.git | 本知识库 |
 | oceanho-stack/go-libs | https://github.com/oceanho-stack/go-libs.git | 公共 Go 工具库（9 库完成） |
-| oceanho-stack/iam-server | （待创建） | IAM 多租户服务（主服务） |
+| oceanho-stack/iam-core | https://github.com/oceanho-stack/iam-core.git | IAM 多租户内核（DESIGN + domain） |
+| oceanho-stack/iam-server | （待创建，iam-core 同仓库子目录） | IAM 服务壳（共享场景权威，认证协议复用 Ory Fosite） |
 
 ## 给 vibe coding / AI 的提示
 
